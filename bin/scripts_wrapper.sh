@@ -18,14 +18,6 @@ function dr-upload-car-zip {
   dr-update-env && ${DR_DIR}/scripts/upload/upload-car.sh "$@"
 }
 
-function dr-list-aws-models {
-  echo "Due to changes in AWS DeepRacer Console this command is no longer available."
-}
-
-function dr-set-upload-model {
-  echo "Due to changes in AWS DeepRacer Console this command is no longer available."
-}
-
 function dr-increment-upload-model {
   dr-update-env && ${DR_DIR}/scripts/upload/increment.sh "$@" && dr-update-env
 }
