@@ -168,8 +168,8 @@ docker pull awsdeepracercommunity/deepracer-sagemaker:$SAGEMAKER_VERSION
 
 # create the network sagemaker-local if it doesn't exit
 SAGEMAKER_NW='sagemaker-local'
-echo '$(hostname  -I | cut -d " " -f1)'
-docker swarm init --advertise-addr '$(hostname  -I | cut -d " " -f1)'
+echo $(hostname  -I | cut -d " " -f1)
+docker swarm init --advertise-addr $(hostname  -I | cut -d " " -f1)
 SWARM_NODE=$(docker node inspect self | jq .[0].ID -r)
 docker node update --label-add Sagemaker=true $SWARM_NODE > /dev/null 2> /dev/null
 docker node update --label-add Robomaker=true $SWARM_NODE > /dev/null 2> /dev/null
@@ -222,4 +222,3 @@ then
     chmod +x $INSTALL_DIR/bin/autorun.sh
     bash -c "source $INSTALL_DIR/bin/autorun.sh"
 fi
-
